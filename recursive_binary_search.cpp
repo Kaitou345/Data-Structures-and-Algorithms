@@ -18,7 +18,7 @@ int recursive_binary_search(int* array, int first, int last, int target)
         }    
         else
         {
-            return recursive_binary_search(array, first, mid, target);
+            return recursive_binary_search(array, first, mid - 1, target);
         }
     
 
