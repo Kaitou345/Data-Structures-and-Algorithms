@@ -1,7 +1,10 @@
 #include <iostream>
 #include <array>
 
-int recursive_binary_search(int* array, int first, int last, int target)
+/// Takes the array to search, the first index, the last index 
+/// and the target to search
+template <typename T>
+int recursive_binary_search(T* array, int first, int last, T target)
 {
     if(first > last)
         return -1;
@@ -20,8 +23,6 @@ int recursive_binary_search(int* array, int first, int last, int target)
         {
             return recursive_binary_search(array, first, mid - 1, target);
         }
-    
-
     }
 }
 
@@ -39,9 +40,7 @@ int main()
 {
     int arr[] = {1,2,3,4,5,6,7,8,9,10};
 
-
-
-    int index = recursive_binary_search(arr, 0, 9, 1);  
+    int index = recursive_binary_search<int>(arr, 0, 9,1);  
     verify(index);
    
 }

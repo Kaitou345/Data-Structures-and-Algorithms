@@ -58,7 +58,7 @@ void merge(T* array, int left, int mid, int right)
     }
 }
 
-/// Takes the array to sort, the leftmost and the rightmost index;
+/// Takes the array to sort, the leftmost and the rightmost index
 template <typename T>
 void merge_sort(T* array, int left, int right)
 {

@@ -1,31 +1,33 @@
 #include <iostream>
 
+template <typename T>
 struct Node
 {
-    int data;
-    Node* next = nullptr;
-    Node(int data)
+    T data;
+    Node<T>* next = nullptr;
+    Node(T data)
     {
         this->data = data;
         this->next = nullptr;
     }
     Node()
     {
-        this->data = 0;
         this->next = nullptr;
     }
 };
 
+/// Template takes the type of the data in the list
+template <typename T>
 class LinkedList
 {
 public:
-    LinkedList(int data)
+    LinkedList(T data)
     {    
         m_head = new Node(data);
         m_current = m_head;
     }
     LinkedList() {}
-    void Append(int data)
+    void Append(T data)
     {
         if(!m_head)
         {
@@ -41,26 +43,26 @@ public:
     }
     ~LinkedList()
     {
-        Node* cur = m_head;
+        Node<T>* cur = m_head;
 
         while(cur)
         {
-            Node* cur2 = cur->next;
+            Node<T>* cur2 = cur->next;
             delete cur;
             cur = cur2;
         }
     }
-    void Prepend(int data)
+    void Prepend(T data)
     {
         
-        Node* temp = new Node(data);
+        Node<T>* temp = new Node(data);
         temp->next = m_head;
         m_head = temp;
 
     }
-    int Search(int target)
+    int Search(T target)
     {
-        Node* cur = m_head;
+        Node<T>* cur = m_head;
 
         int i = 0;  
         while(cur)
@@ -75,9 +77,9 @@ public:
 
         return -1;
     }
-    void InsertAt(int index, int data)
+    void InsertAt(int index, T data)
     {
-        Node* cur = m_head;
+        Node<T>* cur = m_head;
 
         int i = 0;
         while(i < index - 1)
@@ -86,26 +88,26 @@ public:
             i++;
         }
 
-        Node* prev = cur;
+        Node<T>* prev = cur;
         cur = cur->next;
 
-        Node* new_node = new Node(data);
+        Node<T>* new_node = new Node(data);
         prev->next = new_node;
         new_node->next = cur;
     }
-    void Remove(int target)
+    void Remove(T target)
     {
         if(m_head->data == target)
         {
-            Node* head = m_head;
+            Node<T>* head = m_head;
             m_head = m_head->next;
             delete head;
             return;
         }
 
-        Node* cur = m_head->next;
-        Node* prev;
-        Node* next;
+        Node<T>* cur = m_head->next;
+        Node<T>* prev;
+        Node<T>* next;
 
         while(cur)
         { 
@@ -123,7 +125,7 @@ public:
     }
     void Print()
     {
-        Node* cur = m_head;
+        Node<T>* cur = m_head;
 
         int i = 1;
         while(cur)
@@ -134,13 +136,13 @@ public:
     }
 
 private:
-    Node* m_head = nullptr;
-    Node* m_current = nullptr;
+    Node<T>* m_head = nullptr;
+    Node<T>* m_current = nullptr;
 };
 
 int main()
 {
-    LinkedList a;
+    LinkedList<int> a;
     a.Append(2);
     a.Append(4);
     a.Append(5);

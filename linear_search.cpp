@@ -1,6 +1,8 @@
 #include <iostream>
 #include <array>
 
+/// the template takes the array type and the size
+/// Argument takes the std::array and the target to search
 template<typename T, int S>
 int linear_search(std::array<T, S>& array, T target)
 {
