@@ -74,15 +74,3 @@ void merge_sort(T* array, int left, int right)
 
     merge<T>(array, left, mid, right);
 }
-
-int main()
-{
-    int arr[] = {5,4,3,2,1};
-    merge_sort<int>(arr, 0, 4);
-
-    for(int i = 0; i < 5; i++)
-    {
-        cout << arr[i] << ' ';
-    }
-    cout << endl;
-}
