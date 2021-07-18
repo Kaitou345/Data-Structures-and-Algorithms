@@ -36,11 +36,3 @@ void verify(int index)
 
 
 
-int main()
-{
-    int arr[] = {1,2,3,4,5,6,7,8,9,10};
-
-    int index = recursive_binary_search<int>(arr, 0, 9,1);  
-    verify(index);
-   
-}
