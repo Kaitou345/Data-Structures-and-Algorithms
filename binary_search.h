@@ -31,13 +31,3 @@ void verify(int index)
         std::cout << "TRUE " << index << std::endl;
     
 }
-
-int main()
-{
-    std::array<int, 10> arr = {1,2,3,4,5,6,7,8,9,10};
-
-
-    int index = binary_search<int, arr.size()>(arr, 4);
-    verify(index);
-        
-}
